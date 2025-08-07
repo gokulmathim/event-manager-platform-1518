@@ -1,0 +1,17 @@
+<div *ngIf="loading" class="flex-center" style="margin-top: 3rem;">Loading events...</div>
+<section *ngIf="!loading">
+  <h2 style="margin-bottom: 1.2rem; color: var(--primary);">Upcoming Events</h2>
+  <div class="event-grid">
+    <div class="event-card" *ngFor="let event of events">
+      <a [routerLink]="['/events', event.id]">
+        <div class="cover" [style.backgroundImage]="'url(' + (event.coverImageUrl || 'https://placehold.co/300x190?text=Event') + ')'"></div>
+        <div class="content">
+          <span class="title">{{ event.title }}</span>
+          <span class="subtitle">{{ event.location }} &middot; {{ event.startTime | date:'short' }}</span>
+          <span class="attendees">{{ event.attendeesCount }} / {{ event.capacity }} going</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="events.length===0" class="flex-center" style="margin-top:2rem;color:#888;">No events yet.</div>
+</section>

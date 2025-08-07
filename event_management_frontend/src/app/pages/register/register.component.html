@@ -1,0 +1,19 @@
+<div class="auth-form">
+  <h2>Register</h2>
+  <form (ngSubmit)="submit()">
+    <label>Name:
+      <input required [(ngModel)]="name" name="name" />
+    </label>
+    <label>Email:
+      <input type="email" required [(ngModel)]="email" name="email" />
+    </label>
+    <label>Password:
+      <input type="password" required [(ngModel)]="password" name="password" />
+    </label>
+    <div class="error" *ngIf="error">{{ error }}</div>
+    <button [disabled]="submitting" type="submit" class="auth-btn">Register</button>
+  </form>
+  <div class="secondary">
+    Already have an account? <a routerLink="/login">Log in</a>
+  </div>
+</div>

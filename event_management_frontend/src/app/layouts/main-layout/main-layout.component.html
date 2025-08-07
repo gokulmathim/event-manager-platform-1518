@@ -1,0 +1,21 @@
+<div class="main-layout">
+  <aside class="sidebar">
+    <div class="logo">
+      <span style="color: var(--primary); font-weight: bold; letter-spacing: 1.5px">EVENTIFY</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a routerLink="/events" routerLinkActive="active">Browse Events</a></li>
+        <li><a routerLink="/dashboard" routerLinkActive="active">My Dashboard</a></li>
+        <li><a routerLink="/create" routerLinkActive="active">Create Event</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <li><a routerLink="/login" routerLinkActive="active" *ngIf="!(isLoggedIn | async)">Login</a></li>
+        <li><a routerLink="/register" routerLinkActive="active" *ngIf="!(isLoggedIn | async)">Register</a></li>
+        <li><a (click)="logout()" *ngIf="isLoggedIn | async">Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

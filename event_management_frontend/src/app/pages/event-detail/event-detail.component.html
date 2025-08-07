@@ -1,0 +1,20 @@
+<div *ngIf="loading" class="flex-center" style="margin-top:2rem;">Loading event...</div>
+<section *ngIf="!loading && event">
+  <div class="event-detail">
+    <img class="cover-img" [src]="event.coverImageUrl || 'https://placehold.co/340x180?text=Event'" />
+    <div class="meta">
+      <h1>{{ event.title }}</h1>
+      <div class="location">
+        <span>{{ event.location }}</span>
+      </div>
+      <div class="timing">
+        <span>{{ event.startTime | date:'short' }} - {{ event.endTime | date:'short' }}</span>
+      </div>
+      <div class="desc">{{ event.description }}</div>
+      <div class="action-bar">
+        <button class="rsvp" style="background: var(--accent);color:#fff;">RSVP</button>
+        <span class="attendees">{{ event.attendeesCount }} attended | max {{ event.capacity }}</span>
+      </div>
+    </div>
+  </div>
+</section>
