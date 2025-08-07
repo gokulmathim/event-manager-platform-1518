@@ -1,0 +1,54 @@
+.profile-panel {
+  max-width: 420px;
+  margin: 2.5rem auto 1.5rem auto;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 24px #1976d22c;
+  padding: 2em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  margin-bottom: 1.2em;
+  border: 2.5px solid var(--primary);
+}
+.profile-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .7em;
+}
+.edit-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: .6em 1.4em;
+  border-radius: 7px;
+  font-weight: 600;
+  margin-right: .6em;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  filter: brightness(.93);
+}
+label {
+  font-weight: 500;
+}
+input, textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: .5em .87em;
+  border: 1px solid #d5dbe7;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+}
+.error {
+  color: #f33;
+  margin-top: 1em;
+  text-align: center;
+}

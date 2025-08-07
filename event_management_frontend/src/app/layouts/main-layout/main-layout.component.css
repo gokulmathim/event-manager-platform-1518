@@ -1,0 +1,76 @@
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--surface);
+  border-right: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  justify-content: start;
+  gap: 2rem;
+  min-height: 100vh;
+}
+
+.logo {
+  font-size: 1.34rem;
+  letter-spacing: 2px;
+  margin-bottom: 1em;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 1.1em;
+}
+
+.sidebar nav ul li a {
+  color: var(--secondary);
+  font-size: 1rem;
+  letter-spacing: .7px;
+  border-radius: 7px;
+  padding: 8px 10px;
+  display: block;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+main {
+  flex-grow: 1;
+  background: var(--background);
+  padding: 2.5rem min(6vw, 3rem);
+  min-height: 100vh;
+}
+
+/* Responsive sticky sidebar for mobile */
+@media (max-width: 850px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    padding: .8rem 1rem;
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+  main {
+    padding: 1.2rem .4rem;
+  }
+}

@@ -1,0 +1,60 @@
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.7rem;
+}
+
+.event-card {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px 0 #12101509;
+  transition: box-shadow .18s;
+  border: 1px solid #ebebeb;
+}
+
+.event-card:hover {
+  box-shadow: 0 5px 16px 0 #1976d230;
+  border-color: var(--primary);
+}
+
+.event-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.cover {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center center;
+  background-color: #e7eef8;
+}
+
+.content {
+  padding: 1.1em 1em;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.09rem;
+  margin-bottom: 2px;
+  display: block;
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: #777;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.attendees {
+  font-size: .91rem;
+  color: var(--accent);
+  font-weight: 500;
+}

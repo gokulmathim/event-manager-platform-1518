@@ -1,0 +1,22 @@
+<div *ngIf="loading" class="flex-center">Loading profile...</div>
+<div *ngIf="!loading && user" class="profile-panel">
+  <div class="profile-avatar">
+    <img [src]="user.avatarUrl || 'https://placehold.co/80x80?text=User'" />
+  </div>
+  <div class="profile-details" *ngIf="mode === 'view'">
+    <h2>{{ user.name }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p *ngIf="user.bio">Bio: {{ user.bio }}</p>
+    <button class="edit-btn" (click)="startEdit()">Edit</button>
+  </div>
+  <form class="profile-details" *ngIf="mode==='edit'" (ngSubmit)="saveEdit()">
+    <label>Name: <input [(ngModel)]="editProfile.name" name="name" /></label>
+    <label>Email: <input [(ngModel)]="editProfile.email" name="email" /></label>
+    <label>Bio: <textarea [(ngModel)]="editProfile.bio" name="bio"></textarea></label>
+    <div>
+      <button type="submit" class="edit-btn">Save</button>
+      <button type="button" class="edit-btn" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+  <div class="error" *ngIf="error">{{ error }}</div>
+</div>

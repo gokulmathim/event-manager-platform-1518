@@ -1,0 +1,25 @@
+<div *ngIf="loading" class="flex-center">Loading event...</div>
+<div class="form-wrapper" *ngIf="!loading">
+  <h2 style="color: var(--primary); margin-bottom:1em;">Edit Event</h2>
+  <form (ngSubmit)="submit()" #editForm="ngForm">
+    <div class="row">
+      <label>Title: <input required [(ngModel)]="form.title" name="title" /></label>
+    </div>
+    <div class="row">
+      <label>Description: <textarea required [(ngModel)]="form.description" name="description" rows="3"></textarea></label>
+    </div>
+    <div class="row">
+      <label>Location: <input required [(ngModel)]="form.location" name="location" /></label>
+    </div>
+    <div class="row">
+      <label>Start: <input type="datetime-local" required [(ngModel)]="form.startTime" name="startTime" /></label>
+      <label>End: <input type="datetime-local" required [(ngModel)]="form.endTime" name="endTime" /></label>
+    </div>
+    <div class="row">
+      <label>Capacity: <input type="number" min="1" [(ngModel)]="form.capacity" name="capacity" /></label>
+      <label>Public: <input type="checkbox" [(ngModel)]="form.isPublic" name="isPublic" /></label>
+    </div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <button [disabled]="submitting" type="submit" class="submit-btn">Save Changes</button>
+  </form>
+</div>
