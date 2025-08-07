@@ -18,10 +18,11 @@ export class ProfileComponent implements OnInit {
   error: string | null = null;
   editProfile: Partial<User> = {};
 
-  constructor(private api: ApiService) {}
+  // Prefix with _ to indicate intentional unused for Angular DI
+  constructor(private _api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getMyProfile().subscribe({
+    this._api.getMyProfile().subscribe({
       next: (profile: User) => { this.user = profile; this.editProfile = { ...profile }; this.loading = false; },
       error: () => { this.error = 'Failed to load profile'; this.loading = false; }
     });

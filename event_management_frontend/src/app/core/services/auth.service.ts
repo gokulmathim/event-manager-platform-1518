@@ -1,3 +1,4 @@
+/* global localStorage */
 import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -19,14 +20,16 @@ export class AuthService {
   }
 
   // The injected api service may be required (do not remove), but "unused" warning suppressed with underscore.
+  // eslint-disable-next-line no-unused-vars
   constructor(private _api: ApiService) {
     this.restoreSession();
   }
 
   /** PUBLIC_INTERFACE - Perform login. */
   login(email: string, password: string) {
-    return this.api.login(email, password).pipe(
-      tap(res => {
+    // Ensure correct property name and proper typing for 'res'
+    return this._api.login(email, password).pipe(
+      tap((res: any) => {
         if (typeof localStorage !== 'undefined' && isPlatformBrowser(this.platformId)) {
           localStorage.setItem('jwt_token', res.token);
         }
@@ -37,8 +40,9 @@ export class AuthService {
 
   /** PUBLIC_INTERFACE - Register new user. */
   register(name: string, email: string, password: string) {
-    return this.api.register(name, email, password).pipe(
-      tap(res => {
+    // Ensure correct property name and proper typing for 'res'
+    return this._api.register(name, email, password).pipe(
+      tap((res: any) => {
         if (typeof window !== 'undefined' && isPlatformBrowser(this.platformId)) {
           localStorage.setItem('jwt_token', res.token);
         }
@@ -49,7 +53,7 @@ export class AuthService {
 
   /** PUBLIC_INTERFACE - Logout user. */
   logout() {
-    this.api.logout();
+    this._api.logout();
     this.userSubject.next(null);
   }
 

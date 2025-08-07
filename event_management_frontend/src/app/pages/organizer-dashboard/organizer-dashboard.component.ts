@@ -15,6 +15,7 @@ export class OrganizerDashboardComponent implements OnInit {
   myEvents: Event[] = [];
   loading = true;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {

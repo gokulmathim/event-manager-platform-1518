@@ -19,14 +19,15 @@ export class EventCreateComponent {
   error: string | null = null;
 
   // Prefix unused for DI warnings (but keep for template use/future expansion)
+  // eslint-disable-next-line no-unused-vars
   constructor(private _api: ApiService, private _router: Router) {}
 
   /** PUBLIC_INTERFACE Create event and navigate to details on success */
   submit() {
     this.submitting = true;
     this.error = null;
-    this.api.createEvent(this.form).subscribe({
-      next: (created: any) => this.router.navigate(['/events', created.id]),
+    this._api.createEvent(this.form).subscribe({
+      next: (created: any) => this._router.navigate(['/events', created.id]),
       error: () => { this.error = 'Failed to create event'; this.submitting = false; }
     });
   }

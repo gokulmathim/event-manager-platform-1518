@@ -15,11 +15,12 @@ export class EventDetailComponent implements OnInit {
   event?: Event;
   loading = true;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private _route: ActivatedRoute, private _api: ApiService) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.api.getEvent(id).subscribe({
+    const id = this._route.snapshot.paramMap.get('id')!;
+    this._api.getEvent(id).subscribe({
       next: (data: Event) => { this.event = data; this.loading = false; },
       error: () => { this.loading = false; }
     });

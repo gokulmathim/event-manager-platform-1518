@@ -18,6 +18,7 @@ export class RegisterComponent {
   error: string | null = null;
   submitting = false;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private auth: AuthService, private router: Router) {}
 
   /** PUBLIC_INTERFACE Register handler */

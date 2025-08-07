@@ -17,14 +17,15 @@ export class LoginComponent {
   error: string | null = null;
   submitting = false;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private _auth: AuthService, private _router: Router) {}
 
   /** PUBLIC_INTERFACE Login handler */
   submit() {
     this.submitting = true;
     this.error = null;
-    this.auth.login(this.email, this.password).subscribe({
-      next: () => this.router.navigate(['/events']),
+    this._auth.login(this.email, this.password).subscribe({
+      next: () => this._router.navigate(['/events']),
       error: () => { this.error = 'Invalid email or password'; this.submitting = false; }
     });
   }

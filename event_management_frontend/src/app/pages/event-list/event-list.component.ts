@@ -15,10 +15,11 @@ export class EventListComponent implements OnInit {
   events: Event[] = [];
   loading = true;
 
+  // eslint-disable-next-line no-unused-vars
   constructor(private _api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getEvents().subscribe({
+    this._api.getEvents().subscribe({
       next: (data: Event[]) => {
         this.events = data;
         this.loading = false;
